@@ -8,6 +8,5 @@ state_to_code = {"VERMONT": "VT", "GEORGIA": "GA", "IOWA": "IA", "Armed Forces P
 #           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
 #           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
-states = ["MT", "NE", "NV", "NH", "NJ",
-          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+states = ["NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]

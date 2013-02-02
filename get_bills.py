@@ -80,10 +80,10 @@ def get_bill(bill_id):
         content_type = get_content_type(doc_url)
         print 'Content Type: %s' % content_type
         print 'URL: %s' % doc_url
-        if content_type == 'application/pdf' or doc_url.lower().endswith('.pdf'):
+        if 'pdf' in content_type or doc_url.lower().endswith('.pdf'):
             urllib.urlretrieve(doc_url, 'temp.pdf')
             s = convert_pdf('temp.pdf')
-        elif content_type == 'text/html' or doc_url.lower().endswith('.html') or doc_url.lower().endswith('.htm'):
+        elif 'html' in content_type or doc_url.lower().endswith('.html') or doc_url.lower().endswith('.htm'):
             urllib.urlretrieve(doc_url, 'temp.html')
             s = convert_html('temp.html')
         else:
