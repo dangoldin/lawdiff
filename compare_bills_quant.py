@@ -1,13 +1,12 @@
 import os
 from itertools import combinations
 
-import difflib
-
 from n_gram_splitter import lang_model
+from optparse import OptionParser
 
 data_dir = 'bills'
 
-MIN_LINES = 200
+MIN_LINES = 100
 MIN_TRIGRAMS = 3
 MIN_BIGRAMS = 3
 
@@ -28,7 +27,7 @@ def get_comparison_set(fi):
     f = open(fi,'r')
     text = f.read()
     lang = lang_model(text)
-    return lang.trigram
+    return lang.big_gram
 
 def print_set_difference(s1, s2):
     phrases = sorted(list(s1.union(s2)))
@@ -75,14 +74,22 @@ if __name__ == '__main__':
 
     # compare('test/test-bill1.txt','test/test-bill2.txt')
     # exit()
+    
+    parser = OptionParser()
+    parser.add_option("-f", "--full-list", dest="full_list", default=None, help="Whether to loop through the whole list.  Defaults to test files")
+    parser.add_option("-v", "--verbose", dest="verbose", default=None, help="Turns on verbose loggin")
+    (options, args) = parser.parse_args()
+     
+    if options.full_list:
+       use_dir = data_dir
+    else:
+        use_dir = "test"
 
-    compare('bills/ARB00002682.txt', 'bills/FLB00002163.txt')
-    exit()
-
-    files = [os.path.join(data_dir,f) for f in os.listdir('bills')]
-
+    files = [os.path.join(use_dir,f) for f in os.listdir(use_dir)]
+        
+    # Filter out short bills that arent really significant
     keep_files = [f for f in files if keep_file(f)]
-    print 'Kept files:', keep_files
+    if options.verbose: print 'Kept files:', keep_files
 
     pairs = combinations(keep_files, 2)
     comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
