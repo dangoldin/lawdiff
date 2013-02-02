@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import Queue
+import threading
+
 import urllib
 import urllib2
 import re
@@ -94,6 +97,20 @@ def get_bill(bill_id):
     f.write(s)
     f.close()
 
+class Downloader(threading.Thread):
+    def __init__(self, queue):
+        threading.Thread.__init__(self)
+        self.queue = queue
+
+    def run(self):
+        while True:
+            bill_id = self.queue.get()
+            self.download_file(bill_id)
+            self.queue.task_done()
+
+    def download_file(self, bill_id):
+        get_bill(bill_id)
+
 if __name__ == '__main__':
     bills = []
     for state in states:
@@ -111,6 +128,13 @@ if __name__ == '__main__':
 
     print 'Retrieved %d bills' % len(bills)
 
+    queue = Queue.Queue()
+
+    for i in range(8):
+        t = Downloader(queue)
+        t.setDaemon(True)
+        t.start()
+
     for bill in bills:
         if bill['type'][0] == 'bill':
             bill_id = bill['id']
@@ -120,7 +144,10 @@ if __name__ == '__main__':
                 print 'Bill %s already downloaded' % bill_id
             else:
                 print 'Getting bill %s' % bill_id
-                get_bill(bill_id)
+                #get_bill(bill_id)
+                queue.put(bill_id)
+
+    queue.join()
 
     # bills = sunlight.openstates.bills(
     #         #subject = 'Guns',
