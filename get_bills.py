@@ -95,9 +95,19 @@ def get_bill(bill_id):
     f.close()
 
 if __name__ == '__main__':
-    bills = sunlight.openstates.bills(
-        q='gun',
-    )
+    bills = []
+    for state in states:
+        state_bills = sunlight.openstates.bills(
+            state = state.lower(),
+            search_window = 'session',
+            type = 'bill',
+        )
+        print 'Retrieved %d bills for %s' % (len(state_bills), state)
+        bills.extend(state_bills)
+
+    # bills = sunlight.openstates.bills(
+    #     q='food',
+    # )
 
     print 'Retrieved %d bills' % len(bills)
 

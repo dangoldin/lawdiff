@@ -5,7 +5,7 @@ import difflib
 
 from n_gram_splitter import lang_model
 
-data_dir = 'bills'
+data_dir = 'bills/food'
 
 MIN_LINES = 200
 MIN_TRIGRAMS = 3
@@ -26,14 +26,15 @@ def memoize(f):
 @memoize
 def get_comparison_set(fi):
     f = open(fi,'r')
-    t = f.read()
+    t = f.read().replace('\n',' ').replace('\r',' ')
     l = lang_model(t)
     p = set()
-    for phrase, cnt in l.bi_fd.iteritems():
-        if cnt >= MIN_BIGRAMS:
-            p.add(phrase)
-        else:
-            break
+    for phrase, cnt in l.big_fd.iteritems():
+        p.add(phrase)
+        # if cnt >= MIN_BIGRAMS:
+        #     p.add(phrase)
+        # else:
+        #     break
     return p
 
 def print_set_difference(s1, s2):
@@ -52,6 +53,7 @@ def compare(file1, file2):
     p2 = get_comparison_set(file2)
 
     score = float(len(p1.intersection(p2)))/len(p1.union(p2))
+    #score = float(len(p1.intersection(p2)))
 
     if score > 0:
         print '%s vs %s' % (file1, file2)
@@ -86,7 +88,7 @@ if __name__ == '__main__':
     # compare('bills/ARB00002682.txt', 'bills/FLB00002163.txt')
     # exit()
 
-    files = [os.path.join(data_dir,f) for f in os.listdir('bills') if f.endswith('.txt')]
+    files = [os.path.join(data_dir,f) for f in os.listdir(data_dir) if f.endswith('.txt')]
 
     keep_files = [f for f in files if keep_file(f)]
     print 'Kept files:', keep_files
