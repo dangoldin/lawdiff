@@ -38,6 +38,7 @@ def get_comparison_set(fi):
 
 def print_set_difference(s1, s2):
     phrases = sorted(list(s1.union(s2)))
+    phrases = sorted(phrases, key=lambda x:1 if x in s1 and x in s2 else 0, reverse=True)
     for phrase in phrases:
         in_1 = 'X' if phrase in s1 else ' '
         in_2 = 'X' if phrase in s2 else ' '
@@ -82,10 +83,10 @@ if __name__ == '__main__':
     # compare('test/test-bill1.txt','test/test-bill2.txt')
     # exit()
 
-    compare('bills/ARB00002682.txt', 'bills/FLB00002163.txt')
-    exit()
+    # compare('bills/ARB00002682.txt', 'bills/FLB00002163.txt')
+    # exit()
 
-    files = [os.path.join(data_dir,f) for f in os.listdir('bills')]
+    files = [os.path.join(data_dir,f) for f in os.listdir('bills') if f.endswith('.txt')]
 
     keep_files = [f for f in files if keep_file(f)]
     print 'Kept files:', keep_files
