@@ -76,10 +76,9 @@ if __name__ == '__main__':
     # exit()
     
     parser = OptionParser()
-    parser.add_option("-f", "--full-list", dest="full_list", default=None, help="Whether to loop through the whole list.  Defaults to test files")
-    parser.add_option("-v", "--verbose", dest="verbose", default=None, help="Turns on verbose loggin")
+    parser.add_option("-f", "--full-list", action="store_true", dest="full_list", default=None, help="Whether to loop through the whole list.  Defaults to test files")
+    parser.add_option("-v", "--verbose", action="store_true", dest="verbose", default=None, help="Turns on verbose loggin")
     (options, args) = parser.parse_args()
-     
     if options.full_list:
        use_dir = data_dir
     else:
