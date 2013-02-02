@@ -13,6 +13,8 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from cStringIO import StringIO
 
+from state_codes import states
+
 data_dir = 'bills'
 
 RE_BODY = re.compile(r'<body.+?>.+</body>', re.DOTALL)
@@ -75,7 +77,7 @@ def get_bill(bill_id):
         content_type = get_content_type(doc_url)
         print 'Content Type: %s' % content_type
         print 'URL: %s' % doc_url
-        if doc_url.lower().endswith('.pdf'):
+        if content_type == 'application/pdf' or doc_url.lower().endswith('.pdf'):
             urllib.urlretrieve(doc_url, 'temp.pdf')
             s = convert_pdf('temp.pdf')
         elif content_type == 'text/html' or doc_url.lower().endswith('.html') or doc_url.lower().endswith('.htm'):
@@ -93,14 +95,13 @@ def get_bill(bill_id):
     f.close()
 
 if __name__ == '__main__':
-    agro_bills = sunlight.openstates.bills(
-        q='agriculture',
-        chamber='upper'
+    bills = sunlight.openstates.bills(
+        q='gun',
     )
 
-    print 'Retrieved %d bills' % len(agro_bills)
+    print 'Retrieved %d bills' % len(bills)
 
-    for bill in agro_bills:
+    for bill in bills:
         if bill['type'][0] == 'bill':
             bill_id = bill['id']
             #print bill['state'], bill['title'], bill['bill_id']
@@ -110,3 +111,32 @@ if __name__ == '__main__':
             else:
                 print 'Getting bill %s' % bill_id
                 get_bill(bill_id)
+
+    # bills = sunlight.openstates.bills(
+    #         #subject = 'Guns',
+    #         q='gun',
+    #         state = 'ct',
+    #         search_window = 'session',
+    #         type = 'bill',
+    #         chamber = 'upper',
+    #     )
+
+    # print bills
+
+    # exit()
+    # for state in states:
+    #     bills = sunlight.openstates.bills(
+    #         subjects = 'Guns',
+    #         state = state.lower(),
+    #         search_window = 'session',
+    #         type = 'bill',
+    #     )
+
+    #     print state, len(bills)
+
+    # exit()
+
+    # for bill in bills:
+    #     print bill['title']
+
+    # exit()
