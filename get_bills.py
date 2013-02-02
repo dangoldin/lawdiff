@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import urllib
 import urllib2
 import re
@@ -11,15 +13,10 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from cStringIO import StringIO
 
-import html2text
-
 data_dir = 'bills'
 
-def to_unicode_or_bust(obj, encoding='utf-8'):
-    if isinstance(obj, basestring):
-        if not isinstance(obj, unicode):
-            obj = unicode(obj, encoding)
-    return obj
+RE_BODY = re.compile(r'<body.+?>.+</body>', re.DOTALL)
+RE_HTML = re.compile(r'<.+?>', re.DOTALL)
 
 def get_content_type(url):
     page = urllib2.urlopen(url)
@@ -37,17 +34,9 @@ def file_exists(path):
 def convert_html(path):
     fp = file(path, 'r')
     s = fp.read()
-    s = s.decode("windows-1252")
-    #s = unicode(s)
-    s = s.encode('utf8', 'ignore')
-    #print 'First',s
-    #s = unidecode(unicode(s))
-    #print 'Second',s
-    # h = html2text.HTML2Text()
-    # h.ignore_links = True
-    # s = h.handle(s)
-    #print 'Final',s
-    return s
+    c = RE_BODY.search(s).group(0)
+    c = RE_HTML.sub('',c)
+    return c
 
 def convert_pdf(path):
     rsrcmgr = PDFResourceManager()
@@ -85,6 +74,7 @@ def get_bill(bill_id):
     try:
         content_type = get_content_type(doc_url)
         print 'Content Type: %s' % content_type
+        print 'URL: %s' % doc_url
         if doc_url.lower().endswith('.pdf'):
             urllib.urlretrieve(doc_url, 'temp.pdf')
             s = convert_pdf('temp.pdf')
