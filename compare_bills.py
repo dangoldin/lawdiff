@@ -5,11 +5,16 @@ import difflib
 
 from n_gram_splitter import lang_model
 
-data_dir = 'bills/food'
+import Queue
+import threading
 
-MIN_LINES = 200
+data_dir = 'bills/all'
+
+MIN_LINES = 100
 MIN_TRIGRAMS = 3
 MIN_BIGRAMS = 3
+
+comparison_results = []
 
 def memoize(f):
     """ Memoization decorator for functions taking one or more arguments. """
@@ -43,7 +48,8 @@ def print_set_difference(s1, s2):
     for phrase in phrases:
         in_1 = 'X' if phrase in s1 else ' '
         in_2 = 'X' if phrase in s2 else ' '
-        print '%s %s : %s' % (in_1, in_2, phrase)
+        if phrase in s1 and phrase in s2:
+            print '%s %s : %s' % (in_1, in_2, phrase)
 
 def compare(file1, file2):
     #s = difflib.SequenceMatcher(None, t1, t2)
@@ -58,6 +64,7 @@ def compare(file1, file2):
     if score > 0:
         print '%s vs %s' % (file1, file2)
         print_set_difference(p1,p2)
+        comparison_results.append((file1,file2,score))
 
     print '%s,%s: %f' % (file1,file2,round(score, 3))
 
@@ -78,6 +85,23 @@ def keep_pair(f1, f2):
         return False
     return True
 
+class Comparer(threading.Thread):
+    def __init__(self, queue):
+        threading.Thread.__init__(self)
+        self.queue = queue
+
+    def run(self):
+        while True:
+            f1, f2 = self.queue.get()
+            self.compare_bills(f1, f2)
+            self.queue.task_done()
+
+            if self.queue.empty():
+                print 'Final results:',comparison_results
+
+    def compare_bills(self, file1, file2):
+        compare(file1,file2)
+
 if __name__ == '__main__':
     # compare('bills/ARB00002682.txt','bills/ARB00002682.txt')
     # exit()
@@ -94,8 +118,22 @@ if __name__ == '__main__':
     print 'Kept files:', keep_files
 
     pairs = combinations(keep_files, 2)
-    comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
 
-    comparisons_s = sorted(comparisons, key=lambda x: x[2], reverse=True)
+    queue = Queue.Queue()
 
-    print comparisons_s
+    for i in range(8):
+        t = Comparer(queue)
+        t.setDaemon(True)
+        t.start()
+
+    for pair in pairs:
+        if keep_pair(*pair):
+            queue.put(pair)
+
+    queue.join()
+
+    # comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
+
+    # comparisons_s = sorted(comparisons, key=lambda x: x[2], reverse=True)
+
+    # print comparisons_s

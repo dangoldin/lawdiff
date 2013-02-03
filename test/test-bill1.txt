@@ -1,0 +1,49 @@
+ALEC Model http://ow.ly/5Nc9z
+Section 1. {Title} This act may be known as the Private Attorney Retention Sunshine Act
+Section 2. {Definitions}
+
+A. For the purposes of this Act, a contract in excess of $1,000,000 is one in which the fee paid to an attorney or group of attorneys, either in the form of a flat, hourly, or contingent fee, and their expenses, exceeds or can be reasonably expected to exceed $1,000,000.
+
+B. For the purposes of this Act, “fees” shall include any compensation for legal services however measured, including but not limited to flat, hourly, and contingent fees.
+Section 3. {Procurement}
+
+Any state agency or state agent that wishes to retain a lawyer or law firm to perform legal services on behalf of this state, where the fees and expenses for such services will exceed or can be reasonably expected to exceed one hundred thousand dollars ($100,000), shall not do so until an open and competitive bidding process has been undertaken. [Refer to existing state thresholds and requirements for procuring outside services by bid]
+Section 4. {Oversight}
+
+No state agency or state agent shall enter into a contract for legal services exceeding one million dollars ($1,000,000) without the opportunity for legislative review of the terms of the contract in accordance with Section 5.
+Section 5. {Implementation}
+
+A. Except as provided in Section 5(E), any state agency or state agent proposing to enter into a contract for legal services exceeding $1,000,000 shall file a copy of the proposed contract with the clerk of the House of Representatives and shall also accompany such proposed contract with a written statement that identifies:
+
+(1) the reasons the state should retain private counsel and the consideration of alternatives;
+
+(2) the open and competitive bidding process that has been undertaken with respect to the proposed legal services;
+
+(3) the reasons for the selection of the lawyer or law firm that is the proposed contracting party;
+
+(4) the past or present relationship, if any, between such lawyer, law firm, or any partner or other principal in such law firm and the state agency or state agent proposing to enter into the contract; and
+
+(5) if the contract contemplates that all or part of the fee is contingent on the outcome of the legal proceeding, the reasons the contingent fee arrangement is believed to be in the state’s interest and any efforts undertaken to obtain private counsel on a non-contingent fee basis.
+
+B. Except as provided in Section 5(F), the clerk of the House of Representatives, with the approval of the President of the Senate and the Speaker of the House of Representatives, shall promptly refer such proposed contract and written statement to the appropriate committee for review.
+
+C. Within 45 days after the filing of said proposed contract and statement with the clerk, the reviewing committee may hold a public hearing on said proposed contract and, whether or not a public hearing is held, shall issue a report to the referring state agency or state agent. Said report shall include any recommended changes to the proposed contract approved by the committee. If the reviewing committee recommends no changes to the proposed contract within 45 days of the initial filing of the proposed contract with the clerk of the House of Representatives, the referring state agency or state agent may enter into the proposed contract. If the report of the reviewing committee recommends changes to the proposed contract in accordance with this paragraph, the state agency or state agent shall review said report and prepare a revised contract as deemed appropriate in view of said report and shall file with the clerk of the House of Representatives a copy of the revised contract.
+
+D. If the revised contract does not contain all changes recommended by the reviewing committee, the referring state agency or state agent shall include with the revised contract filed with said clerk a letter stating the reasons why the recommended changes were not adopted. Said clerk shall promptly refer such letter and revised contract to the reviewing committee, which may hold additional hearings and issue additional reports in its discretion. Not earlier than 45 days after the filing of such letter and revised contractits discretion. Not earlier than 45 days after the filing of such letter and revised contract with the clerk, the referring state agency or state agent may enter into the revised contract. Notwithstanding anything in this Section, any revised contract containing terms not previously reviewed or recommended by said reviewing committee that can reasonably be expected to increase the fees and expenses to be paid shall be treated as a new proposed contract and shall be filed and reviewed in accordance with Paragraphs AD.
+
+E. In the event that the legislature is not in session and the state agency or state agent wishes to enter into a contract for legal services exceeding $1,000,000, the proposed contract and written statement described in Sec. 5(A)(1) and (2) shall be filed with the Governor in addition to the clerk of the House of Representatives. Except as provided in Sec. 5(F), the Governor shall establish a five-member interim committee consisting of five state legislators, one each to be appointed by the Governor, the Speaker of the House, the President of the Senate, and the minority leader in each house of the legislature, to execute the legislative oversight duties set forth in paragraphs B-C of this section. All deadlines and responsibilities set forth in those paragraphs shall apply as though the interim committee were a committee of the legislature.
+
+F. In the event the state agency or state agent in a writing filed with the Governor and the clerk of the House of Representatives states that time exigencies require that the state retain counsel before the periods provided in Section 5(A) – (D) have elapsed, and provides the reasons therefor, the Governor shall establish a five-member committee, with members appointed as provided in Section 5(E), to which the proposed contract and written statement described in Section 5(A)(1) and (2) shall be referred. Said committee shall consult with the state agency or state agent to establish an expedited schedule for review and recommendations on the proposed contract.
+
+
+
+
+
+Section 6. {Contingent Fees} – Maximum Hourly Charges}
+
+A. At the conclusion of any legal proceeding for which a state agency or agent retained outside counsel on a contingent fee basis, the state shall receive from counsel a statement of the hours worked on the case, expenses incurred, the aggregate fee amount, and a breakdown as to the hourly rate, based on hours worked divided into fee recovered, less expenses.
+
+B. In no case shall the state incur fees and expenses in excess of $1,000 per hour for legal services. In cases where a disclosure submitted in accordance with paragraph (a) of this section indicates an hourly rate in excess of $1,000 per hour, the fee amount shall be reduced to an amount equivalent to $1,000 per hour.
+Section 7. {No Expansion of Authority}
+
+Nothing in this Act shall be construed to expand the authority of any state agency or state agent to enter into contracts where no such authority previously existed.
