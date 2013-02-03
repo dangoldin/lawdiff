@@ -101,12 +101,12 @@ if __name__ == '__main__':
     i = 0
     for f1 in keep_files:
         for f2 in keep_files[i:]:
-            if f1 != f2:
+            if f1 != f2 and f1[0:8] != f2[0:8]:
                 result = compare(f1, f2)
                 if options.verbose: print result[0]
 
                 print "%s, %s: %s" % (f1, f2, result[1]) 
-                print compare_average(f1, f2)
+                #print compare_average(f1, f2)
         i = i + 1
 #    pairs = combinations(keep_files, 2)
 #    comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
