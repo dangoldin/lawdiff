@@ -105,7 +105,7 @@ if __name__ == '__main__':
                 result = compare(f1, f2)
                 if options.verbose: print result[0]
 
-                print "%s, %s: %s" % (f1, f2, result[1]) 
+                if result[1] != 0: print "%s, %s: %s" % (f1, f2, result[1]) 
                 #print compare_average(f1, f2)
         i = i + 1
 #    pairs = combinations(keep_files, 2)
