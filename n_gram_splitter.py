@@ -23,7 +23,7 @@ from nltk.corpus import stopwords
 from nltk import FreqDist, wordpunct_tokenize, cluster, ingrams
 
 stopwords_new = stopwords.words('english')
-stopwords_new.append("nbsp")
+stopwords_new.append(["nbsp", "javascript", "pagetracker", "http", "https"])
 
 
 def _sliding_window(l, n):
