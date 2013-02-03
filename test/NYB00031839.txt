@@ -1,0 +1,134 @@
+
+
+
+
+	
+	Watch Live
+	
+	
+		
+			
+				
+	
+	
+
+&nbsp;
+
+
+
+
+	var num;
+	$(document).ready(function(){
+		//pop out the arrows
+		$('#nav-main a').hover(function(){
+			num = $(this).attr('id').substr(-1);
+			$('#ml'+num).stop().animate({backgroundPosition: -590 +1, width: '25px'}, 250);
+		},function(){
+			$('#ml'+num).stop().animate({backgroundPosition: -600 +1, width: '15px'}, 250);
+		});
+	});
+
+
+		
+			Back
+		
+		
+			Bill Search & Legislative Information Home
+			
+			Assembly Home
+		
+		
+			Bill  / Floor Vote Search
+				New York State Laws
+				Legislative Calendar
+				Public Hearing Schedules
+				Assembly Calendars
+				Assembly Committee Agenda		
+		
+	
+	
+	
+
+
+
+
+		Bill No.: 
+		&nbsp;
+
+		
+&nbsp;&nbsp;Summary&nbsp;&nbsp;&nbsp;Actions&nbsp;&nbsp;&nbsp;Votes&nbsp;&nbsp;&nbsp;Memo&nbsp;&nbsp;&nbsp;Text&nbsp;		
+ (Printer friendly text)A00353 Memo:BILL NUMBER:A353
+
+TITLE  OF  BILL:    An  act to amend the executive law, in relation to
+providing for the award of attorney's fees and expert witness fees  in
+appropriate cases
+
+PURPOSE OF BILL:
+
+This  bill  would  amend the Executive Law. to provide for an award of
+attorney's fees and expert witness fees in all  appropriate  cases  of
+discrimination.
+
+SUMMARY OF PROVISIONS:
+
+Section 1 of the bill would amend Executive Law S 297 (10) to omit the
+phrase  "(w)ith  respect  to cases of housing discrimination only," so
+that attorney's fees. may be  awarded  in  all  appropriate  cases  of
+discrimination   and   to   provide   that,  in  cases  of  employment
+discrimination only, the award of attorney's fees will be  limited  to
+cases  in  which  the  employer has 50 or more employees. This section
+would also provide for expert witness fees to be awarded  pursuant  to
+the same standards as an award of attorney's fees.
+
+Section  2  would  provide that the bill will become effective 90 days
+after enactment.
+
+EXISTING LAW:
+
+Currently attorney's fees may be awarded  only  in  cases  of  housing
+discrimination. There are no provisions for expert witness fees.
+
+STATEMENT IN SUPPORT
+
+In  order  to  create  uniformity and consistency within the Executive
+Law, the limitation on the provision of  attorney's  fees  to  housing
+discrimination  cases should he removed so that attorney's fees can be
+awarded  in  appropriate  cases  in  other  areas  of  the  Division's
+jurisdiction, such as employment and places of public accommodation.
+
+The  majority  of  cases  filed under the Executive Law are employment
+cases. Often, discrimination victims have been terminated,  or  forced
+to  leave  their  jobs  because  of  intolerable  conditions  .such as
+pervasive sexual harassment, and are frequently not in a  position  to
+pay  for  legal representation. Although the law provides for Division
+attorneys or agents to present cases at a public hearing when probable
+cause has been found, there are no provisions for legal representation
+in  the  investigation  and  conciliation  stages  of   the   Division
+proceedings,  nor  are there provisions for representation for persons
+who pursue their claims directly in State court.
+
+A provision for an award of attorney's fees in  employment  and  other
+discrimination  cases would be consistent with the discrimination laws
+of many other  states,  as  well  federal  law,  and  would  permit  a
+more-robust  enforcement  of  the  law  for the general benefit of the
+public.  A wards for expenditure of fees for expert  witnesses  should
+be  awarded  in  a  like  manner,  so  that the Division will have the
+benefit of a complete record in making its determinations.
+
+
+LEGISLATIVE HISTORY:  2011-12- A.1860- Referred to Codes
+2009-10-  A.8184-  Passed  Assembly/S.3884- Referred to Investigations
+and Governmental Operations
+
+FISCAL IMPLICATIONS:
+
+None to the State.
+
+EFFECTIVE DATE:
+
+This proposal would take effect 90 days after becoming law.
+Go to top	
+
+ 
+ 
+ 
