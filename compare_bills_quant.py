@@ -23,11 +23,11 @@ def memoize(f):
     return memodict(f)
 
 @memoize
-def get_comparison_set(fi):
+def get_comparison_set(fi, ngram_length=8):
     f = open(fi,'r')
     text = f.read()
     lang = lang_model(text)
-    return lang.big_gram
+    return lang.gram(ngram_length)
 
 def print_set_difference(s1, s2):
     phrases = sorted(list(s1.union(s2)))
@@ -36,12 +36,21 @@ def print_set_difference(s1, s2):
         in_2 = 'X' if phrase in s2 else ' '
         print '%s %s : %s' % (in_1, in_2, phrase)
 
-def compare(file1, file2):
+
+def compare_average(file1, file2):
+   ngram_8 = compare(file1, file2, 8)
+   ngram_10 = compare(file1, file2, 10)
+   ngram_12 = compare(file1, file2, 12)
+
+   return ngram_12[1] + ngram_10[1]/(ngram_12[1]*3) + ngram_8[1]/(ngram_10[1] * 3 * ngram_8[1] *6)
+
+
+def compare(file1, file2, ngram_length=8):
     #s = difflib.SequenceMatcher(None, t1, t2)
     #score = s.ratio()
 
-    p1 = get_comparison_set(file1)
-    p2 = get_comparison_set(file2)
+    p1 = get_comparison_set(file1, ngram_length)
+    p2 = get_comparison_set(file2, ngram_length)
 
     common_phrases = []
     similarity = 0
@@ -50,8 +59,7 @@ def compare(file1, file2):
 
             common_phrases.append(quant)
             similarity = similarity + 1
-    print common_phrases
-    return "Similarity: %s" % similarity
+    return (common_phrases, similarity)
 
 def keep_file(fi):
     f = open(fi, 'r')
@@ -89,10 +97,20 @@ if __name__ == '__main__':
     # Filter out short bills that arent really significant
     keep_files = [f for f in files if keep_file(f)]
     if options.verbose: print 'Kept files:', keep_files
+    
+    i = 0
+    for f1 in keep_files:
+        for f2 in keep_files[i:]:
+            if f1 != f2:
+                result = compare(f1, f2)
+                if options.verbose: print result[0]
 
-    pairs = combinations(keep_files, 2)
-    comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
+                print "%s, %s: %s" % (f1, f2, result[1]) 
+                print compare_average(f1, f2)
+        i = i + 1
+#    pairs = combinations(keep_files, 2)
+#    comparisons = [compare(*pair) for pair in pairs if keep_pair(*pair)]
 
-    comparisons_s = sorted(comparisons, key=lambda x: x[2], reverse=True)
+#    comparisons_s = sorted(comparisons, key=lambda x: x[2], reverse=True)
 
-    print comparisons_s
+#    print comparisons_s

@@ -61,7 +61,7 @@ def ngrams(l, n):
 class lang_model():
     """Creates a language model of given text"""
     def __init__(self, text):
-        tokens = wordpunct_tokenize(text)
+        self.tokens = wordpunct_tokenize(text)
         # self.unigram = make_ngram_tuples(tokens, 1)
         # self.bigram = make_ngram_tuples(tokens, 2)
         # self.trigram = make_ngram_tuples(tokens, 3)
@@ -69,8 +69,11 @@ class lang_model():
         # self.bi_fd = FreqDist(self.bigram)
         # self.tri_fd = FreqDist(self.trigram)
         #self.big_gram = make_ngram_tuples(tokens, 8)
-        self.big_gram = ngrams(tokens,8)
+        self.big_gram = ngrams(self.tokens,8)
         self.big_fd = FreqDist(self.big_gram)
+
+    def gram(self, size):
+        return ngrams(self.tokens, size)
 
 if __name__ == '__main__':
     s = "This is a test string. This is a test string. This is a test string. This is a test string. This is a test string. This is a test string. This is a test string. This is a test string."
