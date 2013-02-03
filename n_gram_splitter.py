@@ -22,6 +22,9 @@
 from nltk.corpus import stopwords
 from nltk import FreqDist, wordpunct_tokenize, cluster, ingrams
 
+stopwords_new = stopwords.words('english')
+stopwords_new.append("nbsp")
+
 
 def _sliding_window(l, n):
     return [tuple(l[i:i + n]) for i in range(len(l) - n + 1)]
@@ -32,7 +35,7 @@ def _remove_stopwords_lowercase(words):
     Remove stopwords, convert all words to lowercase, exclude numbers
     """
     return [w.lower() for w in words if not w.lower()
-        in stopwords.words('english') and w.isalpha()]
+        in stopwords_new and w.isalpha()]
 
 
 def make_ngram_tuples(l, n):
