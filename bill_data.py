@@ -15,5 +15,6 @@ if __name__ == '__main__':
     for f in files:
         print 'Processing %s' % f
         for t in summarize(f):
-            o.write('%s\t%s\n' % (f,t))
+            p = f.split('/')
+            o.write('%s\t%s\t%s\n' % (f,p[-1][:2],t))
     o.close()

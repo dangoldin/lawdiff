@@ -59,6 +59,16 @@ def convert_pdf(path):
     retstr.close()
     return s
 
+def get_bill_url(bill_id):
+    bill = sunlight.openstates.bill(
+        bill_id=bill_id,
+    )
+    documents = bill['documents']
+    if len(documents) > 0:
+        return documents[0]['url']
+    else:
+        return ''
+
 def get_bill(bill_id):
     bill = sunlight.openstates.bill(
         bill_id=bill_id,
