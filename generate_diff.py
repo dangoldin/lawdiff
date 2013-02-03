@@ -9,8 +9,7 @@ from compare_bills import get_comparison_set
 RE_SPLIT = re.compile(r'([\s+\W+])', flags=re.IGNORECASE)
 
 def generate_diff(fi1,fi2):
-    #a = sorted(list(get_comparison_set(fi1)))
-    #b = sorted(list(get_comparison_set(fi2)))
+    # Modified code from https://github.com/aaronsw/htmldiff
 
     a = RE_SPLIT.split(open(fi1).read())
     b = RE_SPLIT.split(open(fi2).read())
