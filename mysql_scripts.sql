@@ -26,10 +26,14 @@ select * from bill_data limit 100;
 
 select count(1) from bill_data;
 
+select state, count(1)
+from bill_data
+group by state;
+
 select phrase, count(1) as count, count(distinct(state)) as num_states
 from bill_data
 group by phrase
-having count(1) > 1
+having count > 1 and num_states > 1
 order by count desc;
 
 select * from bill_data
