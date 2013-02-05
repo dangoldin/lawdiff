@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Lawdiff : Bicoastal Datafest Hackathon Entry - Identify bills from different states that have similar language" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Lawdiff</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dangoldin/lawdiff">View on GitHub</a>
+
+          <h1 id="project_title">Lawdiff</h1>
+          <h2 id="project_tagline">Bicoastal Datafest Hackathon Entry - Identify bills from different states that have similar language</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/dangoldin/lawdiff/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/dangoldin/lawdiff/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>lawdiff</h1>
+
+<p>This project came out of the Bicoastal Datafest with the goal of identifying bills from different states that used the same language in order to identify outside influence since it's unlikely that two states would come up with bills that use the same language. More information can be found here: <a href="http://www.bdatafest.computationalreporting.com/projects/similar-laws-across-states">http://www.bdatafest.computationalreporting.com/projects/similar-laws-across-states</a></p>
+
+<p>Approach:</p>
+
+<ol>
+<li>Use OpenStates API to download bills</li>
+<li>Convert each downloaded bill to text (from PDF and HTML)</li>
+<li>Extract phrases from the bill text (right now we use 8 word phrases and exclude stop words)</li>
+<li>Compare these phrases across multiple states and identify overlap</li>
+</ol><p>Scripts:</p>
+
+<ol>
+<li>get_bills.py: Use this to download and convert the bills to text</li>
+<li>generate_bill_phrase_file.py: Generate a massive text file that contains the file name, the state, and the phrase for each bill</li>
+<li>analyze_bill_phrase_file.py: Parse the file from the previous step to find overlap and write the overlap to a new file</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Lawdiff maintained by <a href="https://github.com/dangoldin">dangoldin</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
