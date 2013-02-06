@@ -24,6 +24,7 @@ logging.basicConfig()
 logger = logging.getLogger(__name__)
 
 RE_BODY = re.compile(r'<body.+?>.+</body>', re.DOTALL)
+RE_SCRIPT = re.compile(r'<script.+?>.+?</script>', re.DOTALL)
 RE_HTML = re.compile(r'<.+?>', re.DOTALL)
 
 # python get_bills.py --dir=bills --state=ar -v
@@ -43,6 +44,7 @@ def convert_html(path):
     fp = file(path, 'r')
     s = fp.read()
     c = RE_BODY.search(s).group(0)
+    c = RE_SCRIPT.sub('',c)
     c = RE_HTML.sub('',c)
     return c
 
