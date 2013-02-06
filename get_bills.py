@@ -122,11 +122,14 @@ class Downloader(threading.Thread):
         else:
             doc_url = file_path = None
             logger.info('Getting bill %s' % bill_id)
-            doc_url = get_bill_document_url(bill_id)
-            if doc_url:
-                file_path = download_bill(doc_url, data_dir, bill_id)
-            if file_path:
-                convert_bill_to_text(file_path, data_dir, bill_id)
+            try:
+                doc_url = get_bill_document_url(bill_id)
+                if doc_url:
+                    file_path = download_bill(doc_url, data_dir, bill_id)
+                if file_path:
+                    convert_bill_to_text(file_path, data_dir, bill_id)
+            except Exception, e:
+                logger.error('Could not get bill %s: %s' % (bill_id, str(e)))
 
 if __name__ == '__main__':
     parser = OptionParser()
